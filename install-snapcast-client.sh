@@ -3,8 +3,9 @@
 if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
 
 echo
-echo -n "Do you want to install Snapcast client (snapclient})? [y/N] "
-read REPLY
-if [[ ! "$REPLY" =~ ^(yes|y|Y)$ ]]; then exit 1; fi
+echo -n "ClientInstalling"
 
-apt install --no-install-recommends -y snapclient
+cd /tmpDownload
+wget https://github.com/badaix/snapcast/releases/download/v0.19.0/snapclient_0.19.0-1_armhf.deb
+dpkg -i snapclient_0.19.0-1_armhf.deb
+sudo apt-get -f install
