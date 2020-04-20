@@ -3,7 +3,9 @@
 if [[ $(id -u) -ne 0 ]] ; then echo "Please run as root" ; exit 1 ; fi
 
 echo
-echo "Installing Shairport Sync"
+echo  "ShairportInstalling"
+cd ~/downloads
+git clone https://github.com/mikebrady/shairport-sync
 cd ~/downloads/shairport-sync
 autoreconf -i -f
 ./configure --with-stdout --with-avahi --with-ssl=openssl --with-metadata
@@ -12,6 +14,6 @@ sudo make install
 
 cat <<EOF > "/etc/shairport-sync.conf"
 general = {
-  name = "${PRETTY_HOSTNAME}";
+  name = "AirPi";
 };
 EOF
