@@ -6,7 +6,7 @@ echo
 echo  "ShairportInstalling"
 cd /tmpDownload
 git clone https://github.com/mikebrady/shairport-sync
-cd /tmpDownloads/shairport-sync
+cd /tmpDownload/shairport-sync
 autoreconf -i -f
 ./configure --with-stdout --with-avahi --with-ssl=openssl --with-metadata
 make
